@@ -1,0 +1,76 @@
+﻿@model MvcApplication1.Models.JsonProizvod
+
+@{
+    ViewBag.Title = "JsonCreate";
+}
+
+<h2>JsonCreate</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>JsonProizvod</legend>
+
+        <div class="editor-label">
+            Naziv
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Naziv)
+            @Html.ValidationMessageFor(model => model.Naziv)
+        </div>
+
+        <div class="editor-label">
+            Opis
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Opis)
+            @Html.ValidationMessageFor(model => model.Opis)
+        </div>
+
+        <div class="editor-label">
+            Cena
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cena)
+            @Html.ValidationMessageFor(model => model.Cena)
+        </div>
+
+        <div class="editor-label">
+            Kategorija
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Kategorija)
+            @Html.ValidationMessageFor(model => model.Kategorija)
+        </div>
+
+        <div class="editor-label">
+            Dobavljac
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dobavljac)
+            @Html.ValidationMessageFor(model => model.Dobavljac)
+        </div>
+
+        <div class="editor-label">
+            Proizvodjac
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Proizvodjac)
+            @Html.ValidationMessageFor(model => model.Proizvodjac)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

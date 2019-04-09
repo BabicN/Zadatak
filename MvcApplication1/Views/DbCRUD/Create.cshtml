@@ -1,0 +1,63 @@
+﻿@model MvcApplication1.Models.CreateModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Proizvod</legend>
+
+        <div class="editor-label">
+            Naziv
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.proizvod.Naziv)
+            @Html.ValidationMessageFor(model => model.proizvod.Naziv)
+        </div>
+
+        <div class="editor-label">
+            Opis
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.proizvod.Opis)
+            @Html.ValidationMessageFor(model => model.proizvod.Opis)
+        </div>
+
+        <div class="editor-label">
+            Cena
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.proizvod.Cena)
+            @Html.ValidationMessageFor(model => model.proizvod.Cena)
+        </div>
+
+        <div class="editor-field">
+            <label>Kategorija:&nbsp&nbsp</label> @Html.DropDownListFor(model => model.proizvod.KategorijaId, new SelectList(Model.kategorija, "Id", "Tip"), "Izaberi")
+        </div>
+        <div class="editor-field">
+            <label>Dobavljac:&nbsp&nbsp</label> @Html.DropDownListFor(model => model.proizvod.DobavljacId, new SelectList(Model.dobavljac, "Id", "Ime"), "Izaberi")
+        </div>
+        <div class="editor-field">
+            <label>Proizvodjac:&nbsp&nbsp</label> @Html.DropDownListFor(model => model.proizvod.ProizvodjacId, new SelectList(Model.proizvodjac, "Id", "Naziv"), "Izaberi")
+        </div>
+
+        <div> </div> 
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

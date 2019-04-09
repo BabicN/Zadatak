@@ -1,0 +1,64 @@
+﻿@model List<MvcApplication1.Models.JsonProizvod>
+
+<h2>Spisak Proizvoda - JSON</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "JsonCRUD")
+</p>
+<table border="10">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Naziv
+        </th>
+        <th>
+            Cena
+        </th>
+        <th>
+            Opis
+        </th>
+        <th>
+            Kategorija
+        </th>
+        <th>
+            Dobavljac
+        </th>
+        <th>
+            Proizvodjac
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategorija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dobavljac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proizvodjac)
+            </td>
+            <td>
+                @Html.ActionLink("Izmeni", "Edit", "JsonCRUD", new { id = item.Id }, null) |
+                @Html.ActionLink("Obrisi", "Delete", "JsonCRUD", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Entiteti.Proizvod>
+
+<h2>Spisak Proizvoda - Baza</h2>
+
+<table border="10">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Naziv
+        </th>
+        <th>
+            Cena
+        </th>
+        <th>
+            Opis
+        </th>
+        <th>
+            Kategorija
+        </th>
+        <th>
+            Dobavljac
+        </th>
+        <th>
+            Proizvodjac
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategorija.Tip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dobavljac.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proizvodjac.Naziv)
+            </td>
+            <td>
+                @Html.ActionLink("Izmeni", "Edit", "DbCRUD", new { id = item.Id }, null) |
+                @Html.ActionLink("Obrisi", "Delete", "DbCRUD", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+</table>
+<p>
+@Html.ActionLink("Create New", "Create", "DbCRUD")
+</p>
